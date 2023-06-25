@@ -1,4 +1,5 @@
 import 'package:blog_club/data.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
@@ -51,6 +52,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stories = AppDatabase.stories;
+    final categories = AppDatabase.categories;
     ThemeData myTheme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
@@ -80,11 +82,87 @@ class HomeScreen extends StatelessWidget {
                 style: myTheme.textTheme.headlineMedium,
               ),
             ),
-            _StoryList(stories: stories, myTheme: myTheme)
+            _StoryList(stories: stories, myTheme: myTheme),
+            const SizedBox(height: 16),
+            _CategoryList()
           ],
         )),
       ),
     );
+  }
+}
+
+class _CategoryList extends StatelessWidget {
+  const _CategoryList({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final categories = AppDatabase.categories;
+    return _CategoryItem(categories: categories);
+  }
+}
+
+class _CategoryItem extends StatelessWidget {
+  const _CategoryItem({
+    super.key,
+    required this.categories,
+  });
+
+  final List<Category> categories;
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider.builder(
+        itemCount: categories.length,
+        itemBuilder: (context, index, realIndex) {
+          return Stack(
+            children: [
+              Container(
+                // width: 236,
+                // height: 273,
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.amber,
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                foregroundDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  gradient: const LinearGradient(
+                      colors: [Color(0xff0D253C), Colors.transparent],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.center),
+                  // backgroundBlendMode: BlendMode.color
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(32),
+                  child: Image.asset(
+                      'assets/img/posts/large/${categories[realIndex].imageFileName}',
+                      fit: BoxFit.cover),
+                ),
+              ),
+              Positioned(
+                 bottom: 48,
+                 left: 42,
+                child:  Text(categories[index].title,style: Theme.of(context).textTheme.titleLarge!.apply(color: Colors.white),)),
+            ],
+          );
+        },
+        options: CarouselOptions(
+            // height: 700,
+            scrollDirection: Axis.horizontal,
+
+            //har item 80% arze safhe ra begirad:
+            viewportFraction: 0.8,
+
+            //nesbate tol be arze har item
+            aspectRatio: 1.2,
+
+            //by default tamtae item ha ra vasate safhe namayesh midahad k inja man nemikham
+            disableCenter: false,
+            enableInfiniteScroll: false,
+            scrollPhysics: const BouncingScrollPhysics()));
   }
 }
 
