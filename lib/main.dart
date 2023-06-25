@@ -180,7 +180,7 @@ class _StoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: 92,
+      height: 100,
       child: ListView.builder(
         itemCount: stories.length,
         physics: const BouncingScrollPhysics(),
