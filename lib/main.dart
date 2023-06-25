@@ -120,7 +120,7 @@ class _StoryList extends StatelessWidget {
   }
 }
 
-class _Story extends StatelessWidget {○
+class _Story extends StatelessWidget {
   const _Story({
     super.key,
     required this.story,
