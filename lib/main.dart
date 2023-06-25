@@ -1,5 +1,6 @@
+import 'package:blog_club/carousel/carousel_options.dart';
+import 'package:blog_club/carousel/carousel_slider.dart';
 import 'package:blog_club/data.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
@@ -143,9 +144,15 @@ class _CategoryItem extends StatelessWidget {
                 ),
               ),
               Positioned(
-                 bottom: 48,
-                 left: 42,
-                child:  Text(categories[index].title,style: Theme.of(context).textTheme.titleLarge!.apply(color: Colors.white),)),
+                  bottom: 48,
+                  left: 42,
+                  child: Text(
+                    categories[index].title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .apply(color: Colors.white),
+                  )),
             ],
           );
         },
