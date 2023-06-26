@@ -21,6 +21,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+                textStyle: MaterialStateProperty.all(const TextStyle(
+          fontFamily: defaultFontFamily,
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+        )))),
         textTheme: const TextTheme(
             titleMedium: TextStyle(
                 fontFamily: defaultFontFamily,
@@ -36,6 +43,11 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: 24,
                 color: primaryTextColor),
+            headlineSmall: TextStyle(
+                fontFamily: defaultFontFamily,
+                fontSize: 20,
+                color: primaryTextColor,
+                fontWeight: FontWeight.w800),
             bodyMedium: TextStyle(
                 fontFamily: defaultFontFamily,
                 color: secondaryTextColor,
@@ -84,7 +96,8 @@ class HomeScreen extends StatelessWidget {
             ),
             _StoryList(stories: stories, myTheme: myTheme),
             const SizedBox(height: 16),
-            _CategoryList()
+            const _CategoryList(),
+            _PostList(),
           ],
         )),
       ),
@@ -314,5 +327,29 @@ class _Story extends StatelessWidget {
           width: 54,
           height: 54,
         ));
+  }
+}
+
+class _PostList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(32, 0, 24, 0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Latest News',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              TextButton(onPressed: () {}, child: const Text('More'))
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
