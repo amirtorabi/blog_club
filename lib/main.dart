@@ -1,4 +1,3 @@
-import 'package:blog_club/carousel/carousel_options.dart';
 import 'package:blog_club/carousel/carousel_slider.dart';
 import 'package:blog_club/data.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -101,59 +100,79 @@ class _CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = AppDatabase.categories;
-    return _CategoryItem(categories: categories);
+    return _CategoryItem(
+      categories: categories,
+    );
   }
 }
 
 class _CategoryItem extends StatelessWidget {
+  final List<Category> categories;
+
   const _CategoryItem({
     super.key,
     required this.categories,
   });
-
-  final List<Category> categories;
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
         itemCount: categories.length,
         itemBuilder: (context, index, realIndex) {
-          return Stack(
-            children: [
-              Container(
-                // width: 236,
-                // height: 273,
-                margin: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                  borderRadius: BorderRadius.circular(32),
+          return Container(
+            margin: EdgeInsets.fromLTRB(index == 0 ? 32 : 8, 0,
+                index == categories.length - 1 ? 32 : 8, 0),
+            child: Stack(
+              children: [
+                Positioned.fill(
+                    top: 100,
+                    right: 65,
+                    left: 65,
+                    bottom: 24,
+                    child: Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Color(0xaa0D253C),
+                          blurRadius: 20,
+                        ),
+                      ]),
+                    )),
+                Positioned.fill(
+                  child: Container(
+                    // width: 236,
+                    // height: 400,
+                    margin: const EdgeInsets.fromLTRB(0, 8, 0, 16),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    foregroundDecoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(32),
+                      gradient: const LinearGradient(
+                          colors: [Color(0xff0D253C), Colors.transparent],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.center),
+                      // backgroundBlendMode: BlendMode.color
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(32),
+                      child: Image.asset(
+                          'assets/img/posts/large/${categories[realIndex].imageFileName}',
+                          fit: BoxFit.cover),
+                    ),
+                  ),
                 ),
-                foregroundDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32),
-                  gradient: const LinearGradient(
-                      colors: [Color(0xff0D253C), Colors.transparent],
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.center),
-                  // backgroundBlendMode: BlendMode.color
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(32),
-                  child: Image.asset(
-                      'assets/img/posts/large/${categories[realIndex].imageFileName}',
-                      fit: BoxFit.cover),
-                ),
-              ),
-              Positioned(
-                  bottom: 48,
-                  left: 42,
-                  child: Text(
-                    categories[index].title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleLarge!
-                        .apply(color: Colors.white),
-                  )),
-            ],
+                Positioned(
+                    bottom: 48,
+                    left: 32,
+                    child: Text(
+                      categories[index].title,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .apply(color: Colors.white),
+                    )),
+              ],
+            ),
           );
         },
         options: CarouselOptions(
@@ -167,8 +186,10 @@ class _CategoryItem extends StatelessWidget {
             aspectRatio: 1.2,
 
             //by default tamtae item ha ra vasate safhe namayesh midahad k inja man nemikham
-            disableCenter: false,
+            disableCenter: true,
             enableInfiniteScroll: false,
+            enlargeCenterPage: true,
+            enlargeStrategy: CenterPageEnlargeStrategy.height,
             scrollPhysics: const BouncingScrollPhysics()));
   }
 }
