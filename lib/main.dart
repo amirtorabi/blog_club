@@ -1,5 +1,6 @@
 import 'package:blog_club/carousel/carousel_slider.dart';
 import 'package:blog_club/data.dart';
+import 'package:blog_club/gen/assets.gen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -478,6 +479,8 @@ class NavigationBottomItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset('assets/img/icons/$iconName'),
+        // Image.asset('${Assets.img.icons}$iconName'),
+        const SizedBox(height: 4),
         Text(
           titleName,
           style: Theme.of(context).textTheme.bodySmall,
@@ -540,7 +543,7 @@ class NavigationBottom extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32.5),
                     border: Border.all(color: Colors.white, width: 2),
                     color: const Color(0xff376AED)),
-                child: Image.asset('assets/img/icons/plus.png'),
+                child: Assets.img.icons.plus.image(),
               ),
             ],
           ),
