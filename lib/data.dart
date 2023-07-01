@@ -41,6 +41,13 @@ class PostData {
       required this.imageFileName});
 }
 
+class OnBoardingItem {
+  final String title;
+  final String description;
+
+  OnBoardingItem(this.title, this.description);
+}
+
 class AppDatabase {
   static List<StoryData> get stories {
     return [
@@ -141,5 +148,14 @@ class AppDatabase {
           time: '41hr ago',
           imageFileName: 'small_post_3.jpg'),
     ];
+  }
+
+  static List<OnBoardingItem> get onBoardingItems {
+    List<OnBoardingItem> items = [];
+    for (var i = 0; i < 4; i++) {
+      items.add(OnBoardingItem('Read the article you want instantly',
+          'You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.'));
+    }
+    return items;
   }
 }

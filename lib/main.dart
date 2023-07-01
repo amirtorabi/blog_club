@@ -1,4 +1,5 @@
 import 'package:blog_club/gen/assets.gen.dart';
+import 'package:blog_club/onboarding.dart';
 import 'package:blog_club/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
         //     Positioned(bottom: 0, left: 0, right: 0, child: NavigationBottom()),
         //   ],
         // ),
-        home: const Splashscreen());
+        home: const OnBoarding());
   }
 }
 
