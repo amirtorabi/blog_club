@@ -1,7 +1,8 @@
 import 'package:blog_club/gen/assets.gen.dart';
 import 'package:blog_club/onboarding.dart';
-import 'package:blog_club/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,17 @@ class MyApp extends StatelessWidget {
     const secondaryTextColor = Color(0xff2D4379);
     return MaterialApp(
         title: 'Flutter Demo',
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('en'), // English
+          Locale('fa'), // Persian
+        ],
+        locale: const Locale('en'),
         theme: ThemeData(
           primarySwatch: Colors.blue,
           textButtonTheme: TextButtonThemeData(

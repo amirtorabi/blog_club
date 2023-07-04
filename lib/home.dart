@@ -4,6 +4,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,7 +26,10 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Hi, Amir!', style: myTheme.textTheme.titleMedium),
+                  Text(
+                    'Hi, Amir!',
+                    style: myTheme.textTheme.titleMedium,
+                  ),
                   Image.asset(
                     'assets/img/icons/notification.png',
                     width: 32,

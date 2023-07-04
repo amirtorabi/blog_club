@@ -63,6 +63,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             ),
                             Text(
                               onBoardingItems[index].description,
+                              textAlign: TextAlign.justify,
                               style: Theme.of(context)
                                   .textTheme
                                   .titleMedium
@@ -105,7 +106,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           iconColor:
                               const MaterialStatePropertyAll(Colors.white),
                         ),
-                        child: Icon(page == onBoardingItems.length
+                        child: Icon(page == onBoardingItems.length - 1
                             ? CupertinoIcons.check_mark_circled
                             : CupertinoIcons.arrow_right),
                       )
