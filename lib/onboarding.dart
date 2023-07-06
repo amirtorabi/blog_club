@@ -1,6 +1,6 @@
 import 'package:blog_club/data.dart';
 import 'package:blog_club/gen/assets.gen.dart';
-import 'package:blog_club/home.dart';
+import 'package:blog_club/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -93,7 +93,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           } else {
                             Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
+                              builder: (context) => const Login(),
                             ));
                           }
                         },

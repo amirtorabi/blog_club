@@ -1,6 +1,11 @@
 {
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    }
-  }
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "loginWelcom": "Welcom back",
+  "loginSignInDescription":"Sign in with your account",
+  "loginTextFieldUser":"User Name",
+  "loginTextFieldPassword":"Password",
+  "loginButton":"LOGIN"
+}

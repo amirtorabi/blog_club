@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Dart (gen_l10n\\app_localizations.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": ".dart_tool\\flutter_gen",
+            "program": "gen_l10n\\app_localizations.dart"
+        }
+    ]
+}

@@ -1,6 +1,12 @@
 {
-    "helloWorld": "سلام دنیا!",
-    "@helloWorld": {
-      "description": "The conventional newborn programmer greeting"
-    }
-  }
+  "helloWorld": "سلام دنیا!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "loginWelcom": "خوش آمدید",
+  "loginSignInDescription": "با اکانت خود وارد شوید",
+  "loginTextFieldUser": "UserName",
+  "loginTextFieldPassword": "Password",
+  "loginButton":"ورود"
+
+}

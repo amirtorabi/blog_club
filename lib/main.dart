@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const primaryTextColor = Color(0xff0D253C);
     const secondaryTextColor = Color(0xff2D4379);
+    const primaryColor = Color(0xff376AED);
     return MaterialApp(
         title: 'Flutter Demo',
         localizationsDelegates: const [
@@ -31,7 +32,6 @@ class MyApp extends StatelessWidget {
         ],
         locale: const Locale('en'),
         theme: ThemeData(
-          primarySwatch: Colors.blue,
           textButtonTheme: TextButtonThemeData(
               style: ButtonStyle(
                   textStyle: MaterialStateProperty.all(const TextStyle(
@@ -39,6 +39,13 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.w400,
             fontSize: 14,
           )))),
+          colorScheme: const ColorScheme.light(
+              primary: primaryColor,
+              onPrimary: Colors.white,
+              onSurface: primaryTextColor,
+              background: Color(0xffFBFCFF),
+              surface: Colors.white,
+              onBackground: primaryTextColor),
           textTheme: const TextTheme(
               bodySmall: TextStyle(
                   fontSize: 10,
