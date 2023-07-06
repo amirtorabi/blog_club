@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
         children: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 32, 0, 32),
+              padding: const EdgeInsets.fromLTRB(0, 32, 0, 41),
               child: Assets.img.icons.logo.svg(width: 110),
             ),
           ),
@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 8),
+                    padding: const EdgeInsets.only(top: 4, bottom: 4),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -75,16 +75,15 @@ class _LoginState extends State<Login> {
                             children: [
                               Text(
                                 localizations!.loginWelcom,
-                                style: themeData.textTheme.headlineMedium!
-                                    .apply(fontSizeFactor: 1.2),
+                                style: themeData.textTheme.headlineMedium,
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 8, bottom: 6),
+                                    const EdgeInsets.only(top: 12, bottom: 32),
                                 child: Text(
                                   localizations.loginSignInDescription,
                                   style: themeData.textTheme.bodyMedium!
-                                      .apply(fontSizeFactor: 1.5),
+                                      .apply(fontSizeFactor: 1.2),
                                 ),
                               ),
                               TextField(
@@ -101,7 +100,7 @@ class _LoginState extends State<Login> {
                                     labelText:
                                         localizations.loginTextFieldPassword),
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 30),
                               SizedBox(
                                 width: double.infinity,
                                 height: 60,
@@ -114,7 +113,52 @@ class _LoginState extends State<Login> {
                                                         12)))),
                                     onPressed: () {},
                                     child: Text(localizations.loginButton)),
-                              )
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 20, bottom: 32),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text('Forgot your password?',
+                                            style:
+                                                themeData.textTheme.bodyMedium),
+                                        TextButton(
+                                            onPressed: () {},
+                                            child: Text(
+                                              'Reset here',
+                                              style:
+                                                  themeData.textTheme.bodySmall,
+                                            )),
+                                      ],
+                                    ),
+                                    const Text("Or sign in with",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                        )),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Assets.img.icons.google
+                                            .image(width: 32, height: 32),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              32, 16, 32, 16),
+                                          child: Assets.img.icons.facebook
+                                              .image(width: 32, height: 32),
+                                        ),
+                                        Assets.img.icons.twitter
+                                            .image(width: 32, height: 32),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),
