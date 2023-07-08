@@ -1,6 +1,12 @@
 {
     "configurations": [
         {
+            "name": "Flutter",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart"
+        },
+        {
             "name": "Dart (gen_l10n\\app_localizations.dart)",
             "type": "dart",
             "request": "launch",

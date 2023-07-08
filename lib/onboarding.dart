@@ -33,90 +33,94 @@ class _OnBoardingState extends State<OnBoarding> {
   Widget build(BuildContext context) {
     var onBoardingItems = AppDatabase.onBoardingItems;
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(child: Assets.img.background.onboarding.image()),
-          Container(
-            height: 240,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(28), topRight: Radius.circular(28)),
-            ),
-            child: Column(
-              children: [
-                Expanded(
-                  child: PageView.builder(
-                    onPageChanged: (value) {},
-                    itemCount: onBoardingItems.length,
-                    controller: _pageController,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
-                        child: Column(
-                          children: [
-                            Text(
-                              onBoardingItems[index].title,
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Text(
-                              onBoardingItems[index].description,
-                              textAlign: TextAlign.justify,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.apply(fontSizeFactor: 0.9),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(child: Assets.img.background.onboarding.image()),
+            Container(
+              height: 240,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(28),
+                    topRight: Radius.circular(28)),
+              ),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: PageView.builder(
+                      onPageChanged: (value) {},
+                      itemCount: onBoardingItems.length,
+                      controller: _pageController,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
+                          child: Column(
+                            children: [
+                              Text(
+                                onBoardingItems[index].title,
+                                style:
+                                    Theme.of(context).textTheme.headlineSmall,
+                              ),
+                              const SizedBox(
+                                height: 16,
+                              ),
+                              Text(
+                                onBoardingItems[index].description,
+                                textAlign: TextAlign.justify,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.apply(fontSizeFactor: 0.9),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(32, 0, 32, 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SmoothPageIndicator(
-                          effect: const JumpingDotEffect(verticalOffset: 4),
-                          controller: _pageController,
-                          count: onBoardingItems.length),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (page != onBoardingItems.length - 1) {
-                            _pageController.animateToPage(page + 1,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.decelerate);
-                          } else {
-                            Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const Login(),
-                            ));
-                          }
-                        },
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12))),
-                          fixedSize:
-                              MaterialStateProperty.all(const Size(88, 60)),
-                          iconColor:
-                              const MaterialStatePropertyAll(Colors.white),
-                        ),
-                        child: Icon(page == onBoardingItems.length - 1
-                            ? CupertinoIcons.check_mark_circled
-                            : CupertinoIcons.arrow_right),
-                      )
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(32, 0, 32, 16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SmoothPageIndicator(
+                            effect: const JumpingDotEffect(verticalOffset: 4),
+                            controller: _pageController,
+                            count: onBoardingItems.length),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (page != onBoardingItems.length - 1) {
+                              _pageController.animateToPage(page + 1,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.decelerate);
+                            } else {
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                builder: (context) => const Login(),
+                              ));
+                            }
+                          },
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12))),
+                            fixedSize:
+                                MaterialStateProperty.all(const Size(88, 60)),
+                            iconColor:
+                                const MaterialStatePropertyAll(Colors.white),
+                          ),
+                          child: Icon(page == onBoardingItems.length - 1
+                              ? CupertinoIcons.check_mark_circled
+                              : CupertinoIcons.arrow_right),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -4,8 +4,11 @@
     "description": "The conventional newborn programmer greeting"
   },
   "loginWelcom": "Welcom back",
+  "signUpWelcom": "Welcom Guest",
   "loginSignInDescription":"Sign in with your account",
+  "loginSignUpDescription":"Sign up ",
   "loginTextFieldUser":"User Name",
   "loginTextFieldPassword":"Password",
-  "loginButton":"LOGIN"
+  "loginButton":"LOGIN",
+  "signUpButton":"SIGN UP"
 }
