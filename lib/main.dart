@@ -1,8 +1,11 @@
 import 'package:blog_club/gen/assets.gen.dart';
+import 'package:blog_club/gen/fonts.gen.dart';
 import 'package:blog_club/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'article.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,57 +35,66 @@ class MyApp extends StatelessWidget {
         ],
         locale: const Locale('en'),
         theme: ThemeData(
-          textButtonTheme: TextButtonThemeData(
-              style: ButtonStyle(
-                  textStyle: MaterialStateProperty.all(const TextStyle(
-            fontFamily: defaultFontFamily,
-            fontWeight: FontWeight.w400,
-            fontSize: 14,
-          )))),
-          colorScheme: const ColorScheme.light(
-              primary: primaryColor,
-              onPrimary: Colors.white,
-              onSurface: primaryTextColor,
-              background: Color(0xffFBFCFF),
-              surface: Colors.white,
-              onBackground: primaryTextColor),
-          textTheme: const TextTheme(
-              bodySmall: TextStyle(
-                  fontSize: 10,
-                  color: Color(0xff0047CC),
-                  fontFamily: defaultFontFamily,
-                  fontWeight: FontWeight.w600),
-              titleMedium: TextStyle(
-                  fontFamily: defaultFontFamily,
-                  color: secondaryTextColor,
-                  fontWeight: FontWeight.w200,
-                  fontSize: 18),
-              titleLarge: TextStyle(
-                  fontFamily: defaultFontFamily,
-                  fontWeight: FontWeight.bold,
-                  color: primaryTextColor),
-              headlineMedium: TextStyle(
-                  fontFamily: defaultFontFamily,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 24,
-                  color: primaryTextColor),
-              headlineSmall: TextStyle(
-                  fontFamily: defaultFontFamily,
-                  fontSize: 20,
-                  color: primaryTextColor,
-                  fontWeight: FontWeight.w800),
-              bodyMedium: TextStyle(
-                  fontFamily: defaultFontFamily,
-                  color: secondaryTextColor,
-                  fontSize: 12)),
-        ),
+            appBarTheme: const AppBarTheme(
+                elevation: 0,
+                backgroundColor: Colors.white,
+                foregroundColor: primaryTextColor),
+            textButtonTheme: TextButtonThemeData(
+                style: ButtonStyle(
+                    textStyle: MaterialStateProperty.all(const TextStyle(
+              fontFamily: defaultFontFamily,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+            )))),
+            colorScheme: const ColorScheme.light(
+                primary: primaryColor,
+                onPrimary: Colors.white,
+                onSurface: primaryTextColor,
+                background: Color(0xffFBFCFF),
+                surface: Colors.white,
+                onBackground: primaryTextColor),
+            textTheme: const TextTheme(
+                bodySmall: TextStyle(
+                    fontSize: 10,
+                    color: Color(0xff0047CC),
+                    fontFamily: defaultFontFamily,
+                    fontWeight: FontWeight.w600),
+                titleMedium: TextStyle(
+                    fontFamily: defaultFontFamily,
+                    color: secondaryTextColor,
+                    fontWeight: FontWeight.w200,
+                    fontSize: 18),
+                titleLarge: TextStyle(
+                    fontFamily: defaultFontFamily,
+                    fontWeight: FontWeight.bold,
+                    color: primaryTextColor),
+                headlineMedium: TextStyle(
+                    fontFamily: defaultFontFamily,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
+                    color: primaryTextColor),
+                headlineSmall: TextStyle(
+                    fontFamily: defaultFontFamily,
+                    fontSize: 20,
+                    color: primaryTextColor,
+                    fontWeight: FontWeight.w800),
+                bodyMedium: TextStyle(
+                    fontFamily: defaultFontFamily,
+                    color: secondaryTextColor,
+                    fontSize: 12),
+                displayMedium: TextStyle(
+                  fontFamily: FontFamily.avenir,
+                  fontSize: 14,
+                  color: Color(0xff2D4379),
+                  fontWeight: FontWeight.w500,
+                ))),
         // home: const Stack(
         //   children: [
         //     Positioned.fill(child: HomeScreen()),
         //     Positioned(bottom: 0, left: 0, right: 0, child: NavigationBottom()),
         //   ],
         // ),
-        home: const OnBoarding());
+        home: const Article());
   }
 }
 
