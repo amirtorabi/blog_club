@@ -1,6 +1,7 @@
 import 'package:blog_club/gen/assets.gen.dart';
 import 'package:blog_club/gen/fonts.gen.dart';
 import 'package:blog_club/onboarding.dart';
+import 'package:blog_club/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
                 )),
             appBarTheme: const AppBarTheme(
                 // elevation: 0,
+                titleSpacing: 32,
                 backgroundColor: Colors.white,
                 foregroundColor: primaryTextColor),
             textButtonTheme: TextButtonThemeData(
@@ -100,7 +102,7 @@ class MyApp extends StatelessWidget {
         //     Positioned(bottom: 0, left: 0, right: 0, child: NavigationBottom()),
         //   ],
         // ),
-        home: const Article());
+        home: const Profile());
   }
 }
 
