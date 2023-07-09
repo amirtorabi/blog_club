@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
     const primaryColor = Color(0xff376AED);
     return MaterialApp(
         title: 'Flutter Demo',
+        themeMode: ThemeMode.dark,
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -35,8 +36,13 @@ class MyApp extends StatelessWidget {
         ],
         locale: const Locale('en'),
         theme: ThemeData(
+            snackBarTheme: const SnackBarThemeData(
+                backgroundColor: primaryColor,
+                contentTextStyle: TextStyle(
+                  color: Colors.white,
+                )),
             appBarTheme: const AppBarTheme(
-                elevation: 0,
+                // elevation: 0,
                 backgroundColor: Colors.white,
                 foregroundColor: primaryTextColor),
             textButtonTheme: TextButtonThemeData(
