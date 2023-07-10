@@ -1,4 +1,6 @@
+import 'package:blog_club/data.dart';
 import 'package:blog_club/gen/fonts.gen.dart';
+import 'package:blog_club/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/gradient_borders.dart';
@@ -15,6 +17,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
+    List<PostData> posts = AppDatabase.posts;
 
     return Scaffold(
       backgroundColor: const Color(0xffF4F7FF),
@@ -233,12 +236,12 @@ class _ProfileState extends State<Profile> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(28),
                       topRight: Radius.circular(28),
                     ),
-                    color: Colors.white),
+                    color: themeData.colorScheme.surface),
                 child: Column(
                   children: [
                     Padding(
@@ -263,6 +266,10 @@ class _ProfileState extends State<Profile> {
                         ],
                       ),
                     ),
+                    for (var i = 0; i < posts.length; i++)
+                      Post(
+                        post: posts[i],
+                      ),
                   ],
                 ),
               ),

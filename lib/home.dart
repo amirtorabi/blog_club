@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             _StoryList(stories: stories, myTheme: myTheme),
             const SizedBox(height: 16),
             const _CategoryList(),
-            const _PostList(),
+            const PostList(),
             const SizedBox(
               height: 80,
             )
@@ -284,8 +284,8 @@ class _Story extends StatelessWidget {
   }
 }
 
-class _PostList extends StatelessWidget {
-  const _PostList({super.key});
+class PostList extends StatelessWidget {
+  const PostList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -323,81 +323,97 @@ class _PostList extends StatelessWidget {
           physics: const ClampingScrollPhysics(),
           itemBuilder: (context, index) {
             final post = posts[index];
-            return Container(
-              margin: const EdgeInsets.fromLTRB(32, 8, 32, 8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: const [
-                  BoxShadow(
-                    blurRadius: 10,
-                    color: Color(0x1a5282FF),
-                  ),
-                ],
-              ),
-              // height: 149,
-              // width: 300,
-              child: Row(
-                children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(
-                          'assets/img/posts/small/${post.imageFileName}')),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            post.caption,
-                            style: const TextStyle(
-                                fontFamily: 'avenir',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 14,
-                                color: Color(0xff376AED)),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            post.title,
-                            style: Theme.of(context).textTheme.titleSmall,
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              const Icon(CupertinoIcons.hand_thumbsup),
-                              const SizedBox(width: 4),
-                              Text(
-                                post.likes,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              const SizedBox(width: 16),
-                              const Icon(CupertinoIcons.clock),
-                              Text(
-                                post.time,
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                              Expanded(
-                                  child: Container(
-                                alignment: Alignment.centerRight,
-                                child: post.isBookmarked == true
-                                    ? const Icon(CupertinoIcons.bookmark_fill)
-                                    : const Icon(CupertinoIcons.bookmark),
-                              ))
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            );
+            return Post(post: post);
           },
         )
       ],
+    );
+  }
+}
+
+class Post extends StatelessWidget {
+  const Post({
+    super.key,
+    required this.post,
+  });
+
+  final PostData post;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(32, 8, 32, 8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const [
+          BoxShadow(
+            blurRadius: 10,
+            color: Color(0x1a5282FF),
+          ),
+        ],
+      ),
+      // height: 149,
+      // width: 300,
+      child: Row(
+        children: [
+          ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                'assets/img/posts/small/${post.imageFileName}',
+                width: 100,
+              )),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 0, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    post.caption,
+                    style: const TextStyle(
+                        fontFamily: 'avenir',
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        color: Color(0xff376AED)),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    post.title,
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      const Icon(CupertinoIcons.hand_thumbsup),
+                      const SizedBox(width: 4),
+                      Text(
+                        post.likes,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      const SizedBox(width: 16),
+                      const Icon(CupertinoIcons.clock),
+                      Text(
+                        post.time,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      Expanded(
+                          child: Container(
+                        alignment: Alignment.centerRight,
+                        child: post.isBookmarked == true
+                            ? const Icon(CupertinoIcons.bookmark_fill)
+                            : const Icon(CupertinoIcons.bookmark),
+                      ))
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
