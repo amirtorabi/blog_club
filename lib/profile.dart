@@ -138,97 +138,133 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Positioned(
-                      bottom: 32,
-                      left: 64,
-                      right: 64,
-                      child: Container(
-                        height: 68,
-                        decoration: BoxDecoration(
-                            color: themeData.colorScheme.primary,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    color: const Color(0xff2151cd)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '52',
-                                      style: themeData.textTheme.headlineSmall!
-                                          .apply(
-                                              color: themeData
-                                                  .colorScheme.onPrimary),
-                                    ),
-                                    const SizedBox(width: 0.0, height: 4),
-                                    Text(
-                                      'Post',
-                                      style: themeData.textTheme.bodyMedium!
-                                          .copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              color: themeData
-                                                  .colorScheme.onPrimary),
-                                    ),
-                                  ],
+                    bottom: 32,
+                    left: 64,
+                    right: 64,
+                    child: Container(
+                      height: 68,
+                      decoration: BoxDecoration(
+                          color: themeData.colorScheme.primary,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: const Color(0xff2151cd)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '52',
+                                    style: themeData.textTheme.headlineSmall!
+                                        .apply(
+                                            color: themeData
+                                                .colorScheme.onPrimary),
+                                  ),
+                                  const SizedBox(width: 0.0, height: 4),
+                                  Text(
+                                    'Post',
+                                    style: themeData.textTheme.bodyMedium!
+                                        .copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            color: themeData
+                                                .colorScheme.onPrimary),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '250',
+                                  style: themeData.textTheme.headlineSmall!
+                                      .apply(
+                                          color:
+                                              themeData.colorScheme.onPrimary),
                                 ),
-                              ),
+                                const SizedBox(width: 0.0, height: 4),
+                                Text(
+                                  'Following',
+                                  style: themeData.textTheme.bodyMedium!
+                                      .copyWith(
+                                          fontWeight: FontWeight.w400,
+                                          color:
+                                              themeData.colorScheme.onPrimary),
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '250',
-                                    style: themeData.textTheme.headlineSmall!
-                                        .apply(
-                                            color: themeData
-                                                .colorScheme.onPrimary),
-                                  ),
-                                  const SizedBox(width: 0.0, height: 4),
-                                  Text(
-                                    'Following',
-                                    style: themeData.textTheme.bodyMedium!
-                                        .copyWith(
-                                            fontWeight: FontWeight.w400,
-                                            color: themeData
-                                                .colorScheme.onPrimary),
-                                  ),
-                                ],
-                              ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '4.5K',
+                                  style: themeData.textTheme.headlineSmall!
+                                      .apply(
+                                          color:
+                                              themeData.colorScheme.onPrimary),
+                                ),
+                                const SizedBox(width: 0.0, height: 4),
+                                Text(
+                                  'Followers',
+                                  style: themeData.textTheme.bodyMedium!
+                                      .copyWith(
+                                          fontWeight: FontWeight.w400,
+                                          color:
+                                              themeData.colorScheme.onPrimary),
+                                ),
+                              ],
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '4.5K',
-                                    style: themeData.textTheme.headlineSmall!
-                                        .apply(
-                                            color: themeData
-                                                .colorScheme.onPrimary),
-                                  ),
-                                  const SizedBox(width: 0.0, height: 4),
-                                  Text(
-                                    'Followers',
-                                    style: themeData.textTheme.bodyMedium!
-                                        .copyWith(
-                                            fontWeight: FontWeight.w400,
-                                            color: themeData
-                                                .colorScheme.onPrimary),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(28),
+                      topRight: Radius.circular(28),
+                    ),
+                    color: Colors.white),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'My Posts',
+                              style: themeData.textTheme.titleLarge,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Assets.img.icons.grid.svg(),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Assets.img.icons.table.svg(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ]),
           ),
